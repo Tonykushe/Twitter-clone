@@ -1,0 +1,16 @@
+body {
+  background-image: url(../img/bg.jpg);
+  background-size: cover;
+  background-attachment: fixed; }
+
+#home-before-login .home-text {
+  color: white;
+  font-size: 17px;
+  margin-top: 15%; }
+
+#home-before-login .card {
+  margin-top: 15px; }
+  #home-before-login .card .form-group {
+    margin-top: -15px; }
+  #home-before-login .card .card-header {
+    font-size: 15px; }
