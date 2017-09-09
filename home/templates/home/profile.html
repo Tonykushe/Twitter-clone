@@ -18,6 +18,10 @@
 				<p> City     :  {{ user.userprofile.city }}</p>	
 				<p> Website  :  {{ user.userprofile.website }}</p>	
 				<p> Phone    :  {{ user.userprofile.phone }}</p>
+
+				<img src="{{ user.userprofile.profile_image.url }}" class="img-fluid" alt="Responsive image" width="240" height="260">
+				
+				<img src="{{ user.userprofile.cover_image.url }}" class="img-fluid" alt="Responsive image" width="240" height="260">	
 			</div>
 
 			<div class="col-md-6">

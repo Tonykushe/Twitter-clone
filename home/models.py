@@ -11,9 +11,20 @@ class UserProfile(models.Model):
 	city 		= models.CharField(max_length=100, default='')
 	website     = models.URLField(default='')
 	phone		= models.IntegerField(default=0)
+	profile_image  = models.ImageField(upload_to='profile_image', blank=True)	
+	cover_image    = models.ImageField(upload_to='cover_image', blank=True)	
 
 	def __str__(self):
 		return self.user.username
+
+class Post(models.Model):
+	post = models.CharField(max_length=500)
+	user = models.ForeignKey(User)
+	created = models.DateTimeField(auto_now_add=True)
+	updated = models.DateTimeField(auto_now=True)
+	
+class Friend(models.Model):
+	users = models.ManyToManyField(User)
 
 def create_profile(sender, **kwargs):
 	if kwargs['created']:

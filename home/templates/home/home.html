@@ -3,7 +3,29 @@
 {% block body %}
 <!-- ===================================== BEFORE LOGIN ====================================== -->
 {% if user.is_authenticated %}
-<h3>Hello {{ user }}</h3>
+	<div class="container">
+	  	<div class="row">
+	  		<div class="col-md-3">
+				<h4>People You May Know</h4>
+				
+			</div>
+	  		<div class="col-md-6">
+				<form method="post">
+					<h4>Home</h4>
+				  	{% csrf_token %}
+				  	{{ form.post }}
+				  	<br>
+				  	<button type="submit" class="btn btn-primary mt-3">Submit</button>
+				</form>
+				<h3>{{ text }}</h3>
+				{% for post in posts %}
+					<p><strong>{{ post.user.get_full_name }} </strong> {{ post.created }}</p>
+					<p>{{ post.post }}</p>		
+				{% endfor %}
+			</div>
+			
+		</div>	
+  	</div>
 {% else %}
 <section id="home-before-login">	
 <div class="container">

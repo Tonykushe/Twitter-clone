@@ -1,16 +1,40 @@
+from django.views.generic import TemplateView
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from home.forms import *
+from home.models import *
 from django.urls import reverse
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
-def home(request):
-	args = locals()
+class HomeView(TemplateView):
+	template_name = 'home/home.html'
 
-	return render(request, 'home/home.html', args)
+	def get(self, request):
+		form = HomeForm()
+		posts = Post.objects.all().order_by('-created')
+		users = User.objects.exclude(id=request.user.id)
+
+		args = {'form': form, 'posts': posts, 'users': users}
+		return render(request, self.template_name, args)
+
+	def post(self, request):
+		form = HomeForm(request.POST)
+		if form.is_valid():
+			post = form.save(commit=False)
+			post.user = request.user
+			post.save()
+
+			text = form.cleaned_data['post']
+			form = HomeForm()
+			return redirect('home:home')
+
+		args = {'form': form, 'text': text}
+		return render(request, self.template_name, args)
+
+
 
 @login_required
 def profile(request, pk=None):
