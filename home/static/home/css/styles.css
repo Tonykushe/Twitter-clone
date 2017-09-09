@@ -13,3 +13,6 @@
       margin-top: -15px; }
     #home-before-login .card .card-header {
       font-size: 15px; }
+  #home-before-login .signup-btn {
+    background-color: #f0ad4e;
+    border-color: #f0ad4e; }

@@ -5,6 +5,8 @@ from django.db.models.signals import post_save
 # Create your models here.
 class UserProfile(models.Model):
 	user 		= models.OneToOneField(User)
+	first_name  = models.CharField(max_length=100, default='')
+	last_name   = models.CharField(max_length=100, default='')
 	about       = models.CharField(max_length=100, default='')
 	city 		= models.CharField(max_length=100, default='')
 	website     = models.URLField(default='')

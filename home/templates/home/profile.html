@@ -1,0 +1,30 @@
+{% extends 'home/base.html' %}
+{% block title%} Profile {% endblock %}
+
+{% block body%}
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 text-center mb-5" ><h3>{{ user.userprofile.first_name }}'s Profile</h3></div>
+			<div class="col-md-6">
+			
+				<p> First Name:  {{ user.userprofile.first_name }}</p>
+				<p> Last Name :  {{ user.userprofile.last_name }}</p>
+				<p> User Name   :  {{ user }}</p>
+				<p> Email     :  {{ user.email }}</p>
+			</div>
+
+			<div class="col-md-6">
+				<p> About Me :  {{ user.userprofile.about }}</p>
+				<p> City     :  {{ user.userprofile.city }}</p>	
+				<p> Website  :  {{ user.userprofile.website }}</p>	
+				<p> Phone    :  {{ user.userprofile.phone }}</p>
+			</div>
+
+			<div class="col-md-6">
+				<a href="{% url 'home:edit_profile' %}" class="btn btn-primary btn-md know-me-btn mt-5" role="button">Edit Profile</a>
+
+				<a href="{% url 'home:edit_password' %}" class="btn btn-primary btn-md know-me-btn mt-5" role="button">Change Password</a>
+			</div>
+		</div>
+	</div>
+{% endblock %}
