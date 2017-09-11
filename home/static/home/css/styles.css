@@ -1,3 +1,10 @@
+#header {
+  height: 638px;
+  width: 100%;
+  background-image: url(../img/hero.jpg);
+  background-size: cover;
+  background-attachment: fixed; }
+
 #home-before-login {
   background-image: url(../img/bg.jpg);
   background-size: cover;
@@ -16,3 +23,30 @@
   #home-before-login .signup-btn {
     background-color: #f0ad4e;
     border-color: #f0ad4e; }
+
+.navbar {
+  height: 50px; }
+  .navbar .navbar-nav {
+    padding: 0px 0px; }
+  .navbar .tweet-btn {
+    padding: 8px 15px;
+    border-radius: 30px !important;
+    font-weight: bold; }
+  .navbar .profile-image {
+    width: 30px;
+    height: 30px; }
+
+.cover-image {
+  height: 430px;
+  width: 100%; }
+
+.profilepage-image {
+  width: 210px;
+  height: 210px;
+  margin-top: 300px;
+  margin-left: 150px;
+  border: 1px solid white !important;
+  border-width: 5px !important;
+  position: absolute;
+  /*You may also use fixed depending on your needs.*/
+  z-index: 999; }

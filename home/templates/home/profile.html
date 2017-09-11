@@ -1,34 +1,52 @@
 {% extends 'home/base.html' %}
+{% load static %}
 {% block title%} Profile {% endblock %}
 
 {% block body%}
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12 text-center mb-5" ><h3>{{ user.userprofile.first_name }}'s Profile</h3></div>
-			<div class="col-md-6">
-			
-				<p> First Name:  {{ user.userprofile.first_name }}</p>
-				<p> Last Name :  {{ user.userprofile.last_name }}</p>
-				<p> User Name   :  {{ user }}</p>
-				<p> Email     :  {{ user.email }}</p>
-			</div>
+<!-- =================================== Header Image ======================================= -->  
+    <section id="header">
+    	<img src="{{ user.userprofile.profile_image.url }}" class="rounded-circle img-responsive profilepage-image" >
+    	<div>
+    		<img src="{{ user.userprofile.cover_image.url }}" class="img-fluid cover-image" alt="Cover image">
+    	</div>
 
-			<div class="col-md-6">
-				<p> About Me :  {{ user.userprofile.about }}</p>
-				<p> City     :  {{ user.userprofile.city }}</p>	
-				<p> Website  :  {{ user.userprofile.website }}</p>	
-				<p> Phone    :  {{ user.userprofile.phone }}</p>
 
-				<img src="{{ user.userprofile.profile_image.url }}" class="img-fluid" alt="Responsive image" width="240" height="260">
-				
-				<img src="{{ user.userprofile.cover_image.url }}" class="img-fluid" alt="Responsive image" width="240" height="260">	
-			</div>
 
-			<div class="col-md-6">
-				<a href="{% url 'home:edit_profile' %}" class="btn btn-primary btn-md know-me-btn mt-5" role="button">Edit Profile</a>
+    	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		    <div class="container">
+		        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		          <span class="navbar-toggler-icon"></span>
+		        </button>
+		        
+		        <div class="navbar-collapse" id="navbarSupportedContent">
+			        <ul class="nav navbar-nav mx-auto">
+			            <li class="nav-item">
+			              <a class="nav-link" href="{% url 'home:home' %}">Tweets</a>
+			            </li>
+			            <li class="nav-item">
+			              <a class="nav-link" href="">Following</a>
+			            </li>
+			            <li class="nav-item">
+			              <a class="nav-link" href="">Followers</a>
+			            </li>
+			        </ul>
+		          
 
-				<a href="{% url 'home:edit_password' %}" class="btn btn-primary btn-md know-me-btn mt-5" role="button">Change Password</a>
-			</div>
-		</div>
-	</div>
+		          <ul class="navbar-nav ml-auto">
+		            <li class="nav-item">
+		              <a href="#" class="btn btn-primary btn-md tweet-btn" role="button">Edit Profile</a>
+		            </li>
+		          </ul>
+		         </div>
+		    </div>
+	    </nav>
+
+
+    </section>
+
+    
 {% endblock %}
+
+
+				
+				
